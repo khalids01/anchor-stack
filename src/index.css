@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Inter", sans-serif;
+}
+html,
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@layer components {
+  .input {
+    @apply rounded-md bg-light;
+  }
+}
