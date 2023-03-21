@@ -15,7 +15,8 @@ const images = {
     bell: 'bell.png',
     dots: 'dots.png',
     eye: 'eye.png',
-    first: 'first.png'
+    first: 'first.png',
+    check: 'check.svg'
 }
 
 export default images

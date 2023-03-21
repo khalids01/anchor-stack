@@ -17,8 +17,10 @@ module.exports = {
         danger: '#ff5630',
         secondary: '#8a94a6',
         dark: '#4e5d78',
+        lighter: '#8a94a6',
         lightest: '#fafbfc',
-        darkest: '#333333'
+        darkest: '#333333',
+        dark: '#323b4b',
       },
     },
 
