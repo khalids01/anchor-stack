@@ -70,7 +70,7 @@ const UsersList = () => {
       </table>
 
       {isLoading ? (
-        <div role="status">
+        <div role="status " className="flex h-full w-full flex-col py-20 justify-center items-center min-h-30">
           <svg
             aria-hidden="true"
             className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
