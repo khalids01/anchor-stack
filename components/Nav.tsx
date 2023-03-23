@@ -27,7 +27,7 @@ const Nav = () => {
             <input placeholder="search" className="search" />
             <img
               alt="search"
-              src={`../assets/${images.search}`}
+              src={images.search}
               className="placeholder:text-muted w-[18px] h-[18px] object-contain absolute top-5 right-6"
             />
           </div>
@@ -36,7 +36,7 @@ const Nav = () => {
             <button className="bg-transparent border-none mr-[43px]">
               <img
                 alt="notification"
-                src={`../assets/${images.bell}`}
+                src={images.bell}
                 className=" w-[25px] h-[25px] object-contain "
               />
             </button>
@@ -78,7 +78,7 @@ const Nav = () => {
       <nav className="py-7 container-xl mx-auto flex bg-white justify-between items-center px-6 py-2 ">
         <img
           className="object-contain max-w-40 h-full max-h-11"
-          src="../assets/logo.png"
+          src={images.logo}
         />
 
         <div className="w-max relative ">
@@ -93,7 +93,7 @@ const Nav = () => {
             ))}
           </select>
           <img
-            src={`../assets/${images.chevron}`}
+            src={images.chevron}
             className="w-2.5 absolute right-3 top-4 translate-y-0.5"
             alt="down"
           />

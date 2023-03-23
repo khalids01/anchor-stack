@@ -9,7 +9,7 @@ const Aside = () => {
       <Link to={"/dashboard"} className="mb-[40px] ">
         <img
           className="object-contain max-w-40 h-full max-h-11 ml-4 "
-          src={`../../assets/${images.logo}`}
+          src={images.logo}
         />
       </Link>
 
@@ -42,7 +42,7 @@ const Aside = () => {
             }`}
           >
             <img
-              src={`../../assets/${item.img}`}
+              src={item.img}
               className="object-contain h-[16px] w-[16px] mr-4 text-[#a7afbc]"
             />
             <span>{item.label}</span>

@@ -17,7 +17,7 @@ const EmailInput = ({
 }) => {
   return (
     <div className="group relative">
-      <img src={`../../assets/${images.at}`} className="input-icon" />
+      <img src={images.at} className="input-icon" />
       <input
         required
         placeholder="Your Email"

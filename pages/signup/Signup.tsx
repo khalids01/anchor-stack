@@ -70,7 +70,7 @@ const Signup = () => {
         <div className="flex justify-between gap-x-30px">
           <button className="auth-btn">
             <img
-              src={`../../assets/${images.google}`}
+              src={images.google}
               alt="G"
               className="auth-btn-img w-[25px] h-[25px]"
             />
@@ -79,7 +79,7 @@ const Signup = () => {
 
           <button className="auth-btn">
             <img
-              src={`../../assets/${images.apple}`}
+              src={images.apple}
               alt="Apple"
               className="auth-btn-img w-[20px] h-[24px]"
             />
@@ -110,7 +110,7 @@ const Signup = () => {
           />
 
           <div className="group relative">
-            <img src={`../../assets/${images.name}`} className="input-icon" />
+            <img src={images.name} className="input-icon" />
             <input
               required
               placeholder="Your Name"

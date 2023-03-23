@@ -1,12 +1,7 @@
-import { useUser } from "../../hooks";
 import DashboardLayout from "../DashboardLayout";
 import Nav from "../../components/Nav";
 
 const Dashboard = () => {
-  const { me } = useUser();
-
-  console.log(me);
-
   return (
     <DashboardLayout>
       <Nav />

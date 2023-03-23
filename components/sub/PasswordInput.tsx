@@ -22,7 +22,7 @@ const PasswordInput = ({
 
   return (
     <div className="group relative">
-      <img src={`../../assets/${images.lock}`} className="input-icon" />
+      <img src={images.lock} className="input-icon" />
       <input
         required
         placeholder="Password"
@@ -38,7 +38,7 @@ const PasswordInput = ({
         onClick={() => setShow(!show)}
         className={`password-show-btn ${show ? "show" : "hide"}`}
       >
-        <img src={`../../assets/${show ? images.eye : images.eyeHide}`} />
+        <img src={`${show ? images.eye : images.eyeHide}`} />
       </button>
       {password.isTouched && !password.valid && submitted ? (
         <p className="error text-danger mb-6 mb-6 -mt-4">

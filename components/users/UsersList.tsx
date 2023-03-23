@@ -56,7 +56,7 @@ const UsersList = () => {
                       <div>
                         <button className="bg-transparent border-none ">
                           <img
-                            src={`../../assets/${images.dots}`}
+                            src={images.dots}
                             className="object-contain h-[24px] w-[24px]"
                           />
                         </button>
@@ -99,7 +99,7 @@ const UsersList = () => {
             disabled={page === 1}
           >
             <img
-              src={`../../assets/${images.first}`}
+              src={images.first}
               alt="First"
               className="h-[16px] w-[16px] object-contain"
             />
@@ -126,7 +126,7 @@ const UsersList = () => {
             disabled={page === data?.data?.total_pages}
           >
             <img
-              src={`../../assets/${images.last}`}
+              src={images.last}
               alt="First"
               className="h-[16px] w-[16px] object-contain"
             />
