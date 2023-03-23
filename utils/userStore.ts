@@ -6,23 +6,24 @@ const expirationDate = new Date();
 expirationDate.setTime(expirationDate.getTime() + (7 * 24 * 60 * 60 * 1000)) // 7 days in milliseconds
 
 const OPTIONS = { path: '/', sameSite: true, expires: expirationDate }
-const KEY = 'stack_token'
+const KEY = 'user'
 
-export const storeToken = (token: string): void => {
-    cookies.set(KEY, token, OPTIONS)
-}
 
-export const retrieveToken = (): string | null => {
-    try {
-        const token = cookies.get(KEY);
-        if (token) return token
+export const storeUser = (user:any) => {
+    cookies.set(KEY, user, OPTIONS)
+} 
 
+export const retrieveUser = () =>{
+    try{
+        const user  = cookies.get(KEY)
+        if(user) return user;
         return null
-    } catch (err) {
-        return null;
+    }catch(err){
+        return null
     }
 }
 
-export const removeToken = (): void => {
+export const removeUser = () => {
     cookies.remove(KEY, OPTIONS)
 }
+

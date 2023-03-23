@@ -16,7 +16,8 @@ const images = {
     dots: 'dots.png',
     eye: 'eye.png',
     first: 'first.png',
-    check: 'check.svg'
+    check: 'check.svg',
+    eyeHide:'eye-hide.svg' 
 }
 
 export default images

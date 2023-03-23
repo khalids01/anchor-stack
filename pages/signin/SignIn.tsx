@@ -1,26 +1,21 @@
 import images from "../../constants/images";
 import { useState } from "react";
+import AuthLayout from "../AuthLayout";
 import { validateEmail } from "../../utils/validation";
 import { Link } from "react-router-dom";
 import { CheckBox, EmailInput, PasswordInput } from "../../components/sub";
-import AuthLayout from "../AuthLayout";
 import { useAuth } from "../../hooks";
 
-const Signup = () => {
+const SignIn = () => {
   const [agreeToTermsCondition, setAgreeToTermsCondition] = useState(false);
+  const { signInMutation } = useAuth();
   const [submitted, setSubmitted] = useState(false);
-  const { signupMutation, signupLoading } = useAuth();
-
   const [email, setEmail] = useState({
     value: "",
     isTouched: false,
     valid: false,
   });
-  const [name, setName] = useState({
-    value: "",
-    isTouched: false,
-    valid: false,
-  });
+
   const [password, setPassword] = useState({
     value: "",
     isTouched: false,
@@ -35,28 +30,17 @@ const Signup = () => {
       ...email,
       valid: validateEmail(email.value),
     });
-
     setPassword({
       ...password,
-      valid: password.value.length >= 8,
+      valid: password.value?.length > 8,
     });
 
-    setName({
-      ...name,
-      valid: name.value?.length !== 0,
-    });
-
-    if (
-      !validateEmail(email.value) ||
-      password.value.length < 8 ||
-      name.value?.length === 0
-    ) {
+    if (!validateEmail(email.value) || password.value?.length < 8) {
       return;
     }
 
-    signupMutation({
+    signInMutation({
       email: email.value,
-      userName: name.value,
       password: password.value,
     });
   };
@@ -65,8 +49,8 @@ const Signup = () => {
   return (
     <AuthLayout>
       <section className="container-xsm mt-[123px]">
-        <h1 className="auth-title">Getting Started</h1>
-        <p className="auth-sub-title">Create an account to continue</p>
+        <h1 className="auth-title">Sign In</h1>
+        <p className="auth-sub-title">Welcome back, {"you've"} been missed!</p>
         <div className="flex justify-between gap-x-30px">
           <button className="auth-btn">
             <img
@@ -74,7 +58,7 @@ const Signup = () => {
               alt="G"
               className="auth-btn-img w-[25px] h-[25px]"
             />
-            <span>Sign Up with Google</span>
+            <span>Sign In with Google</span>
           </button>
 
           <button className="auth-btn">
@@ -83,7 +67,7 @@ const Signup = () => {
               alt="Apple"
               className="auth-btn-img w-[20px] h-[24px]"
             />
-            <span>Sign Up with Apple ID</span>
+            <span>Sign In with Apple ID</span>
           </button>
         </div>
 
@@ -109,33 +93,8 @@ const Signup = () => {
             }}
           />
 
-          <div className="group relative">
-            <img src={`../../assets/${images.name}`} className="input-icon" />
-            <input
-              required
-              placeholder="Your Name"
-              className={`input ${
-                !name.valid && name.isTouched && submitted ? "error" : ""
-              }`}
-              type={"text"}
-              value={name.value}
-              onChange={(e) => {
-                if (submitted) {
-                  setSubmitted(false);
-                }
-                setName({
-                  ...name,
-                  value: e.target.value.trim(),
-                  isTouched: e.target.value?.trim().length !== 0,
-                });
-              }}
-            />
-            {name.isTouched && !name.valid && submitted ? (
-              <p className="error text-danger -mt-4 mb-6">Name is required</p>
-            ) : null}
-          </div>
-
           <PasswordInput
+            withStrengthBar={false}
             submitted={submitted}
             password={password}
             onChange={(e: any) => {
@@ -151,25 +110,19 @@ const Signup = () => {
           />
 
           <CheckBox
-            label="I agree to the Terms & Condition"
+            label="Remember Me"
             checked={agreeToTermsCondition}
             onChange={(e: any) => setAgreeToTermsCondition(e.target.checked)}
           />
 
           <div className="group">
-            <button
-              disabled={signupLoading}
-              type="submit"
-              className="submit-btn"
-            >
-              Sign Up
-            </button>
+            <button className="submit-btn">Sign In</button>
           </div>
 
           <div className="group flex justify-center">
-            <p className="text-muted mr-1">Already have an account?</p>
-            <Link to="/signin" className="text-primary ">
-              Sign In
+            <p className="text-muted mr-1">{"Don't"} have an account?</p>
+            <Link to="/" className="text-primary ">
+              Sign Up
             </Link>
           </div>
         </form>
@@ -178,4 +131,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignIn;
